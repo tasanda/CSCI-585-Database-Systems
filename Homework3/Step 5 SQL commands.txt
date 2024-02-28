@@ -1,0 +1,53 @@
+CREATE TABLE rlocation (
+ID UUID DEFAULT gen_random_uuid(), 
+longlat VARCHAR);
+
+INSERT INTO rlocation (longlat) VALUES
+('POINT (-122.2766163 37.8130267)'),
+('POINT (-122.2824423029704 37.814089001028336)'),
+('POINT (-122.26729465955792 37.811398920630324)'),
+('POINT (-122.2699575257101 37.806706723654116)'),
+('POINT (-122.28684672240966 37.79986864117156)'),
+('POINT (-122.28489407442152 37.817194534121704)'),
+('POINT (-122.27204092891375 37.81251592653612)'),
+('POINT (-122.27310150878701 37.80010940078003)'),
+('POINT (-122.26761519028969 37.80781202459698)'),
+('POINT (-122.26995742626355 37.81296333114528)'),
+('POINT (-122.26769959518964 37.81433028419347)'),
+('POINT (-122.26020866031836 37.812429879187754)'),
+('POINT (-122.24489598863055 37.810188945012484)');
+
+--select * from rlocation;
+
+--Convex hull algorithm
+WITH
+    the_geoms_table
+        AS (
+            SELECT
+                st_union(st_geomfromtext(longlat)) AS the_union
+            FROM
+                rlocation
+        )
+SELECT
+    st_asgeojson(st_convexhull(the_union))
+FROM
+    the_geoms_table;
+
+--Create table for home location for k nearest neighbor
+CREATE TABLE point (
+ID UUID DEFAULT gen_random_uuid(),
+longlat VARCHAR);
+
+--Add home location to point table
+INSERT INTO point (longlat) VALUES
+('POINT (-122.2766163 37.8130267)');
+
+--Find k nearest neighbor
+SELECT g1.longlat,g2.longlat FROM point as g1, rlocation g2
+WHERE g1.ID <> g2.ID
+ORDER BY g1.ID, ST_Distance(g1.longlat,g2.longlat)
+LIMIT 2;
+
+/*
+help from https://www.cockroachlabs.com/docs/stable/st_convexhull.html
+*/
