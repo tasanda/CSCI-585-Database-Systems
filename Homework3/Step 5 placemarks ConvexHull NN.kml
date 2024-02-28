@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://earth.google.com/kml/2.0">
+  <Document>
+<Style id="z1">
+<IconStyle>
+<Icon>
+<href>http://www.google.com/intl/en_us/mapfiles/ms/micons/blue-dot.png</href>
+</Icon>
+</IconStyle>
+</Style>
+    <Folder>
+  <name>Tariq Home</name>
+  <open>1</open>
+  <description>
+    Home Location of Tariq
+  </description>
+  <Placemark>
+    <name>Home</name>
+    <Point>
+      <coordinates>-122.2766163,37.8130267,0</coordinates>
+    </Point>
+  </Placemark>
+</Folder>
+<Folder>
+  <name>Watering Holes</name>
+  <open>1</open>
+  <description>
+    Bars by my home in Oakland California
+  </description>
+  <Placemark>
+    <name>Ghost Town Brewery</name>
+    <Point>
+      <coordinates>-122.2824423029704,37.814089001028336,0</coordinates>
+    </Point>
+  </Placemark>
+  <Placemark>
+    <name>Viridian</name>
+    <Point>
+      <coordinates>-122.26729465955792,37.811398920630324,0</coordinates>
+    </Point>
+  </Placemark>
+  <Placemark>
+    <name>Cafe Van Kleef</name>
+    <Point>
+      <coordinates>-122.2699575257101,37.806706723654116,0</coordinates>
+    </Point>
+  </Placemark>
+  <Placemark>
+    <name>Old Kan Beer and Co</name>
+    <Point>
+      <coordinates>-122.28684672240966,37.79986864117156,0</coordinates>
+    </Point>
+  </Placemark>
+  <Placemark>
+    <name>Soba Ichi</name>
+    <Point>
+      <coordinates>-122.28489407442152,37.817194534121704,0</coordinates>
+    </Point>
+  </Placemark>
+  <Placemark>
+    <name>StarLine Social Club</name>
+    <Point>
+      <coordinates>-122.27204092891375,37.81251592653612,0</coordinates>
+    </Point>
+  </Placemark>
+</Folder>
+<Folder>
+  <name>Dispensary</name>
+  <open>1</open>
+  <description>
+    Cannabis dispensary that have recently opened up in downtown Oakland
+  </description>
+  <Placemark>
+    <name>Have a Heart Oakland</name>
+    <Point>
+      <coordinates>-122.27310150878701,37.80010940078003,0</coordinates>
+    </Point>
+  </Placemark>
+  <Placemark>
+    <name>Cookies</name>
+    <Point>
+      <coordinates>-122.26761519028969,37.80781202459698,0</coordinates>
+    </Point>
+  </Placemark>
+  <Placemark>
+    <name>Blum</name>
+    <Point>
+      <coordinates>-122.26995742626355,37.81296333114528,0</coordinates>
+    </Point>
+  </Placemark>
+  <Placemark>
+    <name>ECO</name>
+    <Point>
+      <coordinates>-122.26769959518964,37.81433028419347,0</coordinates>
+    </Point>
+  </Placemark>
+  <Placemark>
+    <name>Rose Mary Jane</name>
+    <Point>
+      <coordinates>-122.26020866031836,37.812429879187754,0</coordinates>
+    </Point>
+  </Placemark>
+  <Placemark>
+    <name>Oakanna</name>
+    <Point>
+      <coordinates>-122.24489598863055,37.810188945012484,0</coordinates>
+    </Point>
+  </Placemark>
+</Folder>
+  <Placemark>
+          <name>Convex Hull</name>
+          <visibility>0</visibility>
+          <styleUrl>#transRedPoly</styleUrl>
+          <Polygon>
+            <extrude>1</extrude>
+            <altitudeMode>relativeToGround</altitudeMode>
+            <outerBoundaryIs>
+              <LinearRing>
+                <coordinates> -122.286846722,37.799868641,17
+                  -122.284894074,37.817194534,17
+                  -122.267699595,37.814330284,17
+                  -122.244895989,37.810188945,17
+                  -122.273101509,37.800109401,17
+                  -122.286846722,37.799868641,17 </coordinates>
+              </LinearRing>
+            </outerBoundaryIs>
+          </Polygon>
+        </Placemark>
+
+<Placemark>
+      <name>Nearest Neighbor</name>
+      <description>Transparent green wall with yellow outlines</description>
+      <styleUrl>#tq84-style</styleUrl>
+      <LineString>
+        <extrude>1</extrude>
+        <tessellate>1</tessellate>
+        <altitudeMode>absolute</altitudeMode>
+        <coordinates> -122.2766163,37.8130267,18
+          -122.27204092891375,37.81251592653612,18
+        </coordinates>
+      </LineString>
+    </Placemark>
+
+  </Document>
+</kml>

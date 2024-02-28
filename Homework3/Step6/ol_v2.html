@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+<title>OL</title>
+<script src="https://openlayers.org/api/OpenLayers.js">
+</script>
+<style>
+#map {
+    width:400px;
+    height:400px;
+}
+</style>
+</head>
+
+<body>
+<div id="map"></div>
+
+
+<script>
+// your JS code 
+//console.log("Hola, all!");
+//alert("Hello JS World!");
+
+// my data is a label/ID for what we store, which is the object stored in variable d, 
+// whose value is {"k1":[{"a":5, "b":-6}]}, which consists of a key called k1 
+// with an array as its value: [{"a":5, "b":-6}]
+var d = {"k1":[
+     			{"name":"Tariq Home",
+                "long": -122.2766163,
+                "lat": 37.8130267},
+                {"name":"Ghost Town Brewery",
+                "long": -122.2824423029704,
+                "lat": 37.814089001028336},
+                 {"name":"Viridian",
+                "long": -122.26729465955792,
+                "lat": 37.811398920630324},
+                {"name":"Cafe Van Kleef",
+                "long": -122.2699575257101,
+                "lat": 37.806706723654116},
+                 {"name":"Old Kan Beer and Co",
+                "long": -122.28684672240966,
+                "lat": 37.79986864117156},
+  				{"name":"Soba Ichi",
+                "long": -122.28489407442152,
+                "lat": 37.817194534121704},
+  				{"name":"StarLine Social Club",
+                "long": -122.27204092891375,
+                "lat": 37.81251592653612},
+  				{"name":"Have a Heart Oakland",
+                "long": -122.27310150878701,
+                "lat": 37.80010940078003},
+  				{"name":"Cookies",
+                "long": -122.26761519028969,
+                "lat": 37.80781202459698},
+  				{"name":"Blum",
+                "long": -122.26995742626355,
+                "lat": 37.81296333114528},
+  				{"name":"ECO",
+                "long": -122.26769959518964,
+                "lat": 37.81433028419347},
+  				{"name":"Rose Mary Jane",
+                "long": -122.26020866031836,
+                "lat": 37.812429879187754},
+  				{"name":"Oakanna",
+                "long": -122.24489598863055,
+                "lat": 37.810188945012484}
+                 ]
+           } 
+localStorage.setItem("myData",JSON.stringify(d));
+// you'd need to modify the above, to store all your points
+  
+  
+//next [presumably after closing the browser, and reloading our html]
+// we can fetch the stored data, just by supplying its key:
+var dataStored = JSON.parse(localStorage.getItem("myData"));
+// verify that we fetched our data correctly
+console.log(dataStored); 
+// we can iterate through our array [of points], like so:
+  /*
+var a = dataStored.k1; // a will contain our array
+for(var indx in a) { // indx is 0,1,2...
+  console.log(a[indx]); // this could be a single point
+}
+*/
+
+// here's how to plot points on a map, using OpenLayers:
+// [this is code I mildly modified, from an existing source]
+function initMap() {
+        map = new OpenLayers.Map('map');
+        basemap = new OpenLayers.Layer.OSM("Simple OSM Map");
+        map.addLayer(basemap);
+        markers = new OpenLayers.Layer.Markers("Markers");
+        map.addLayer(markers);
+}// initMap()
+
+function addMarker(latitude, longitude) {
+        var lonLat = new OpenLayers.LonLat(longitude, latitude)
+            .transform(
+                new OpenLayers.Projection("EPSG:4326"), // transform from WGS 1984
+                map.getProjectionObject() // to Spherical Mercator Projection
+        );
+        var point = new OpenLayers.Marker(lonLat);
+        markers.addMarker(point);
+        map.setCenter(lonLat,18); // second arg is zoom level
+        //console.log(latitude + ", " + longitude);
+}// addMarker()
+
+
+// load and setup map layers
+initMap();
+
+// here's how to plot just ONE [lat,long] on the map! 
+//addMarker(34.0205,-118.28538); // Tommy!
+var a = dataStored.k1; // a will contain our array
+for(var indx in a) { // indx is 0,1,2...
+  addMarker(a[indx].lat,a[indx].long);
+}
+// for fun, play around with the above coords! 
+// Qn: how would you bring up the northern part of Suqian (China)??!!
+
+</script>
+
+</body>
+
+</html>
+
+<!--
+https://www.google.com/maps/search/usc/@34.0205363,-118.2855507,36m/data=!3m1!1e3
+-->
+
