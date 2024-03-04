@@ -13,4 +13,4 @@ Homework 3: Working with geospatial data (adding longitude and latitude to data 
 
 Homework 4: Data mining using UI-based tools WEKA, KNIME, RapidMiner. Build linear regression model to find summary statistics.
 
-Homework 5: Working with NoSQL (using data stored in JSON format). Usued MongoDB Atlas - a cloud-based installation of MongoDB. Used GeoJSON library to perform geospatial functions similar to HW3.
+Homework 5: Working with NoSQL (using data stored in JSON format). Used MongoDB Atlas - a cloud-based installation of MongoDB. Used GeoJSON library to perform geospatial functions similar to HW3.
